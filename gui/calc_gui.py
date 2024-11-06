@@ -1,6 +1,15 @@
 # gui/calc_gui.py
 import tkinter as tk
 from tkinter import messagebox
+
+import sys
+import os
+
+# Add the parent directory (root of the project) to the sys.path
+#! REFACTOR THIS !#
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Import 'utils'
 from utils.calc_utils import calc_profit_and_cost, format_currency
 
 def calc_profit():
