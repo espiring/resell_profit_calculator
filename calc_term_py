@@ -1,0 +1,27 @@
+def calc_profit_and_cost(buy_price: int, sell_price: int, quantity: int) -> tuple:
+    profit = (sell_price - buy_price) * quantity
+    total_cost = buy_price * quantity
+    return profit, total_cost
+
+def get_user_input(prompt: str) -> int:
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            print("Vänligen ange ett giltigt heltal.")
+
+def display_results(profit: int, total_cost: int, quantity: int) -> None:
+    print(f"Vinst: {profit:,.0f} kr")
+    print(f"Totalkostnad för {quantity} enheter: {total_cost:,.0f} kr")
+
+def main():
+    buy_price = get_user_input("Skriv in inköpspris: ")
+    sell_price = get_user_input("Skriv in säljpris: ")
+    quantity = get_user_input("Skriv in mängd (enheter): ")
+    
+    profit, total_cost = calc_profit_and_cost(buy_price, sell_price, quantity)
+    display_results(profit, total_cost, quantity)
+
+if __name__ == "__main__":
+    main()
+
